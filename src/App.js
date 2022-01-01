@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Button } from 'antd'
+
+import 'antd/dist/antd.css'
+import './App.css'
+import ModalHabitForm from './components/ModalHabitForm'
 
 function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ModalHabitForm
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
+      <div className="Button-Container">
+        <Button size="large" onClick={showModal}>
+          Create Habits
+        </Button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
