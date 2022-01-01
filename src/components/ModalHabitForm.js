@@ -1,14 +1,20 @@
+import { useDispatch } from 'react-redux'
 import { Button, Modal, Form, Input } from 'antd'
 import { Formik } from 'formik'
+import { addHabit } from '../actions/habitAction'
+
 function ModalHabitForm({ isModalVisible, setIsModalVisible }) {
+  const dispatch = useDispatch()
+
   const handleForm = (values) => {
-    console.log(values)
+    dispatch(addHabit(values))
     setIsModalVisible(false)
   }
 
   const handleCancel = () => {
     setIsModalVisible(false)
   }
+
   return (
     <Modal
       title="Basic Modal"

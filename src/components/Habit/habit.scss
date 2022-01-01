@@ -1,0 +1,22 @@
+.Habit {
+  &-Title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  &-List {
+    width: auto;
+    min-width: 400px;
+    border: 1px solid #dedede;
+    padding: 16px;
+  }
+}
+
+.habit {
+  border-bottom: 1px solid #dedede;
+  padding: 8px 0px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

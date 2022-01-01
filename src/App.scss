@@ -2,7 +2,12 @@
   height: 100vh;
   width: 100vw;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .Button-Container {
   position: absolute;
   right: 20px;

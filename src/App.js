@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Button } from 'antd'
 
-import 'antd/dist/antd.css'
-import './App.css'
+import HabitList from './components/Habit/HabitList'
 import ModalHabitForm from './components/ModalHabitForm'
+
+import './App.scss'
 
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false)
+
   const showModal = () => {
     setIsModalVisible(true)
   }
@@ -17,6 +19,7 @@ function App() {
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
       />
+      <HabitList />
       <div className="Button-Container">
         <Button size="large" onClick={showModal}>
           Create Habits
