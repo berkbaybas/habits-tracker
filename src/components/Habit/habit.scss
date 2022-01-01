@@ -6,17 +6,29 @@
   }
   &-List {
     width: auto;
-    min-width: 400px;
+    min-width: 600px;
     border: 1px solid #dedede;
-    padding: 16px;
+    padding: 32px;
+  }
+  &-Item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dedede;
+    padding: 16px 0px;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &-Icon {
+    margin-left: 8px;
+    cursor: pointer;
   }
 }
 
-.habit {
-  border-bottom: 1px solid #dedede;
-  padding: 8px 0px;
-
-  &:last-child {
-    border-bottom: 0;
-  }
+.Icon-Container {
+  display: flex;
+  align-items: center;
 }

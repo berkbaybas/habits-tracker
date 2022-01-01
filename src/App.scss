@@ -12,4 +12,23 @@
   position: absolute;
   right: 20px;
   bottom: 20px;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    padding: 32px;
+    border-radius: 9999px;
+    font-size: 18px;
+  }
+}
+
+.Button-Icon {
+  margin-left: 8px;
+}
+
+.Calendar-Container {
+  padding: 64px;
+  border: 1px solid #dedede;
 }

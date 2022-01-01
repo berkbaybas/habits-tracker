@@ -5,6 +5,7 @@ import HabitList from './components/Habit/HabitList'
 import ModalHabitForm from './components/ModalHabitForm'
 
 import './App.scss'
+import { GiCrossedChains, GiBreakingChain } from 'react-icons/gi'
 
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -21,8 +22,9 @@ function App() {
       />
       <HabitList />
       <div className="Button-Container">
-        <Button size="large" onClick={showModal}>
-          Create Habits
+        <Button onClick={showModal}>
+          Create Habit Chain
+          <GiCrossedChains className="Button-Icon" size={32} />
         </Button>
       </div>
     </div>
