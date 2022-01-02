@@ -5,6 +5,7 @@ import './habit.scss'
 
 function HabitList() {
   const habits = useSelector((state) => state.habit)
+  console.log(habits)
   return (
     <div className="Habit">
       <h2 className="Habit-Title">HABITS</h2>

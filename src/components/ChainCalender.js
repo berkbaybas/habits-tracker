@@ -1,52 +1,40 @@
-import React from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
-import { Calendar, Badge } from 'antd'
-function ChainCalender() {
-  let urlParams = useParams()
-  console.log(urlParams.id)
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { handleChain } from '../actions/habitAction'
+import { Calendar } from 'antd'
+import ChainIcon from './Icons/ChainIcon'
+import { GrClose } from 'react-icons/gr'
 
-  function getListData(value) {
-    let listData
-    switch (value.date()) {
-      case 8:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' }
-        ]
-        break
-      case 10:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-          { type: 'error', content: 'This is error event.' }
-        ]
-        break
-      case 15:
-        listData = [
-          { type: 'warning', content: 'This is warning event' },
-          { type: 'success', content: 'This is very long usual event。。....' },
-          { type: 'error', content: 'This is error event 1.' },
-          { type: 'error', content: 'This is error event 2.' },
-          { type: 'error', content: 'This is error event 3.' },
-          { type: 'error', content: 'This is error event 4.' }
-        ]
-        break
-      default:
-    }
-    return listData || []
-  }
+function ChainCalender() {
+  const urlParams = useParams()
+  const dispatch = useDispatch()
+  const habits = useSelector((state) => state.habit)
+  const [habit, SetHabit] = useState({
+    id: 1,
+    name: 'Duolingo çaliş',
+    chain: ['2022-01-01']
+  })
+
+  useEffect(() => {
+    const filteredHabit = habits.find((habit) => habit.id == urlParams.id)
+    SetHabit(filteredHabit)
+  }, [habits])
+
+  useEffect(() => {
+    console.log(habit)
+  }, [habit])
 
   function dateCellRender(value) {
-    const listData = getListData(value)
-    return (
-      <ul className="events">
-        {listData.map((item) => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
-        ))}
-      </ul>
-    )
+    if (habit !== null && value !== null) {
+      const IsExist = habit.chain.includes(value.format('YYYY-MM-DD'))
+      // if (IsExist) {
+      //   return <ChainIcon width="100%" height="90%" />
+      // }
+      if (IsExist) {
+        return <GrClose size="92%" width="100%" height="90%" />
+      }
+    }
   }
 
   function getMonthData(value) {
@@ -65,11 +53,17 @@ function ChainCalender() {
     ) : null
   }
 
+  const handleChange = (date) => {
+    dispatch(handleChain(habit.id, date.format('YYYY-MM-DD')))
+  }
+
   return (
     <div className="Calendar-Container">
       <Calendar
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
+        className="Calendar"
+        onChange={handleChange}
       />
     </div>
   )
