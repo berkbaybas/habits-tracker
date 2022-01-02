@@ -17,13 +17,15 @@ function ModalHabitForm({ isModalVisible, setIsModalVisible }) {
 
   return (
     <Modal
-      title="Basic Modal"
+      title="Habit Create Form"
       visible={isModalVisible}
       footer={null}
       onCancel={handleCancel}
     >
-      <h2>Form</h2>
-      <Formik initialValues={{ HabitName: '' }} onSubmit={handleForm}>
+      <Formik
+        initialValues={{ HabitName: '', HabitDescription: '' }}
+        onSubmit={handleForm}
+      >
         {({ handleSubmit, handleChange, values }) => (
           <Form
             labelCol={{
@@ -35,8 +37,11 @@ function ModalHabitForm({ isModalVisible, setIsModalVisible }) {
             }}
             size="large"
           >
-            <Form.Item label="Input">
+            <Form.Item label="Name">
               <Input onChange={handleChange('HabitName')} />
+            </Form.Item>
+            <Form.Item label="Description">
+              <Input onChange={handleChange('HabitDescription')} />
             </Form.Item>
             {/* <Form.Item label="DatePicker">
               <DatePicker />
@@ -45,7 +50,7 @@ function ModalHabitForm({ isModalVisible, setIsModalVisible }) {
               <Switch />
             </Form.Item> */}
             <Form.Item>
-              <Button onClick={handleSubmit}>Button</Button>
+              <Button onClick={handleSubmit}>Create</Button>
             </Form.Item>
           </Form>
         )}

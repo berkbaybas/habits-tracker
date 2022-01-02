@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { handleChain } from '../actions/habitAction'
 import { Calendar } from 'antd'
 import ChainIcon from './Icons/ChainIcon'
 import { GrClose } from 'react-icons/gr'
+import { BiArrowBack } from 'react-icons/bi'
+import moment from 'moment'
 
 function ChainCalender() {
   const urlParams = useParams()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const habits = useSelector((state) => state.habit)
   const [habit, SetHabit] = useState({
@@ -37,33 +40,24 @@ function ChainCalender() {
     }
   }
 
-  function getMonthData(value) {
-    if (value.month() === 8) {
-      return 1394
-    }
-  }
-
-  function monthCellRender(value) {
-    const num = getMonthData(value)
-    return num ? (
-      <div className="notes-month">
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null
-  }
-
   const handleChange = (date) => {
     dispatch(handleChain(habit.id, date.format('YYYY-MM-DD')))
   }
 
   return (
     <div className="Calendar-Container">
+      <BiArrowBack
+        size={64}
+        onClick={() => {
+          navigate('/')
+        }}
+        className="Calendar-Back-Icon"
+      />
       <Calendar
         dateCellRender={dateCellRender}
-        monthCellRender={monthCellRender}
         className="Calendar"
         onChange={handleChange}
+        validRange={[moment('2022-01-01'), moment('2022-12-30')]}
       />
     </div>
   )

@@ -13,15 +13,19 @@ function Habit({ habit }) {
 
   return (
     <div className="Habit-Item" key={habit.id}>
-      <p>{habit.name}</p>
+      <div className="Habit-Content">
+        <p className="Habit-Content-Name">{habit.name}</p>
+        <p className="Habit-Content-Description">{habit.description}</p>
+      </div>
       <div className="Icon-Container">
-        <Link to={`/ChainCalender/${habit.id}`}>
-          <BsCalendarDateFill className="Habit-Icon" />
+        <Link to={`/ChainCalender/${habit.id}`} className="Calendar-link">
+          <BsCalendarDateFill size={32} className="Habit-Icon" />
         </Link>
         <AiFillCloseCircle
           className="Habit-Icon"
           fill="red"
-          size={20}
+          stroke="white"
+          size={32}
           onClick={() => handleRemove(habit.id)}
         />
       </div>

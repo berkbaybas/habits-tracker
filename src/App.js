@@ -22,6 +22,7 @@ function App() {
       />
       <HabitList />
       <div className="Button-Container">
+        <img src={require('./images/chain.png')} alt="chain" />
         <Button onClick={showModal}>
           Create Habit Chain
           <GiCrossedChains className="Button-Icon" size={32} />

@@ -9,7 +9,7 @@ import App from './App'
 import ChainCalender from './components/ChainCalender'
 
 import 'antd/dist/antd.css'
-import './index.css'
+import './index.scss'
 
 ReactDOM.render(
   <React.StrictMode>
