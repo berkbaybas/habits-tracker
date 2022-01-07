@@ -7,7 +7,8 @@
 React,
 Redux,
 React Router,
-Ant Design
+Ant Design,
+Scss
 
 
 
