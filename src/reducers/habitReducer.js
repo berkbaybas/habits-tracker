@@ -1,10 +1,10 @@
 const initialState = [
-  {
-    id: 1,
-    name: 'Duolingo çaliş',
-    description: 'her gün 15 dk çaliş',
-    chain: ['2022-01-01', '2022-01-02', '2022-01-03']
-  }
+  // {
+  //   id: 1,
+  //   name: 'İngilizce Öğrenme Zinciri',
+  //   description: 'Her gün 15dk Duolingo çaliş',
+  //   chain: ['2022-01-01', '2022-01-02', '2022-01-03']
+  // }
 ]
 
 const habitReducer = (state = initialState, action) => {

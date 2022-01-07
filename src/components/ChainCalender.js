@@ -13,11 +13,7 @@ function ChainCalender() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const habits = useSelector((state) => state.habit)
-  const [habit, SetHabit] = useState({
-    id: 1,
-    name: 'Duolingo çaliş',
-    chain: ['2022-01-01']
-  })
+  const [habit, SetHabit] = useState({})
 
   useEffect(() => {
     const filteredHabit = habits.find((habit) => habit.id == urlParams.id)
@@ -29,7 +25,8 @@ function ChainCalender() {
   }, [habit])
 
   function dateCellRender(value) {
-    if (habit !== null && value !== null) {
+    console.log(habit !== {})
+    if (Object.keys(habit).length !== 0) {
       const IsExist = habit.chain.includes(value.format('YYYY-MM-DD'))
       // if (IsExist) {
       //   return <ChainIcon width="100%" height="90%" />
