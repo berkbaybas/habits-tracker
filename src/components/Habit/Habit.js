@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { removeHabit } from '../../actions/habitAction'
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { IconContext } from 'react-icons'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { BsCalendarDateFill } from 'react-icons/bs'
 
 function Habit({ habit }) {
@@ -21,11 +22,10 @@ function Habit({ habit }) {
         <Link to={`/ChainCalender/${habit.id}`} className="Calendar-link">
           <BsCalendarDateFill size={32} className="Habit-Icon" />
         </Link>
-        <AiFillCloseCircle
+        <IoIosCloseCircleOutline
           className="Habit-Icon"
-          fill="red"
-          stroke="white"
-          size={32}
+          size={44}
+          color="red"
           onClick={() => handleRemove(habit.id)}
         />
       </div>

@@ -3,7 +3,7 @@
     font-size: 48px;
     margin-bottom: 32px;
     text-align: center;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Bangers', cursive;
     color: #866a5c;
   }
   &-List {
@@ -43,8 +43,14 @@
   }
 
   &-Icon {
-    margin-left: 16px;
+    margin-left: 20px;
     cursor: pointer;
+    color: #866a5c;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -55,4 +61,8 @@
 
 .Calendar-link {
   color: currentColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.2);
 }

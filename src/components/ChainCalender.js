@@ -47,6 +47,7 @@ function ChainCalender() {
   return (
     <div className="Calendar-Container">
       <BiArrowBack
+        color="#866a5c"
         size={64}
         onClick={() => {
           navigate('/')

@@ -13,7 +13,7 @@ function HabitList() {
         {habits.length > 0 ? (
           habits.map((habit) => <Habit habit={habit}></Habit>)
         ) : (
-          <p>there is no habit</p>
+          <p>Create a habit now and start chaining</p>
         )}
       </div>
     </div>
