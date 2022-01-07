@@ -54,7 +54,7 @@ function ChainCalender() {
       <Calendar
         dateCellRender={dateCellRender}
         className="Calendar"
-        onChange={handleChange}
+        onSelect={handleChange}
         validRange={[moment('2022-01-01'), moment('2022-12-30')]}
       />
     </div>
